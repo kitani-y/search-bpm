@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スライダー例</title>
+    <style>
+        .slider {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>スライダーを使用した数値入力</h1>
+    <label for="slider">数値を選択してください:</label>
+    <input type="range" id="slider" class="slider" min="0" max="100" value="50" step="1">
+    <span id="sliderValue">50</span>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const sliderValue = document.getElementById('sliderValue');
+
+        // スライダーの値が変更されたときに表示を更新
+        slider.addEventListener('input', function() {
+            sliderValue.textContent = slider.value;
+        });
+    </script>
+</body>
+</html>

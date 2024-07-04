@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search-bpm</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <!-- reset.css destyle -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
+    <!-- icons -->
+    <link rel="shortcut icon" href="../icon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../icon/apple-touch-icon-180x180.png" sizes="180x180">
+    <link rel="icon" type="image/png" href="../icon/android-chrome-192x192.png" sizes="192x192">
+    <!-- フォントの追加 -->
+    <link rel="stylesheet" href="https://use.typekit.net/edq4suy.css">
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="../icon/icon-96x96.png">
+        </div>
+        <ul class="header-contents">
+            <li><a href="#">TOP</a></li>
+            <li><a href="#"><img src="../icon/sarch-icon.png"></a></li>
+            <li><a href="#">SIGN UP</a></li>
+            <li><a href="#">SIGN IN</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="bpm-value">
+                <span id="sliderValue">100</span> BPM
+            </div>
+            <button id="restart-btn">START</button>
+            <input type="range" id="slider" class="slider" min="50" max="250" value="50" step="1">
+        </div>
+    </main>
+<script type="text/javascript" src="../static/common.js"></script>
+</body>
+</html>
