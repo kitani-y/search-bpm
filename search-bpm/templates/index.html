@@ -20,21 +20,31 @@
             <img src="../icon/icon-96x96.png">
         </div>
         <ul class="header-contents">
-            <li><a href="#">TOP</a></li>
-            <li><a href="#"><img src="../icon/sarch-icon.png"></a></li>
+            <li><a href="#" id="top-btn">TOP</a></li>
+            <li><a href="#" id="search-btn"><img src="../icon/sarch-icon.png"></a></li>
             <li><a href="#">SIGN UP</a></li>
             <li><a href="#">SIGN IN</a></li>
         </ul>
     </header>
     <main>
-        <div class="main-container">
+        <div id="top-main">
             <div class="bpm-value">
                 <span id="sliderValue">50</span> BPM
             </div>
             <button id="restart-btn">START</button>
             <input type="range" id="slider" class="slider" min="50" max="250" value="50" step="1">
         </div>
+        <div class="search-main none" id="search-main">
+            <div id="search-textbox">        
+                <div class="search-wrapper">
+                    <img src="../icon/sarch-icon-black.png">
+                    <input type="text" placeholder="曲名を入力">
+                </div>
+            </div>
+        </div>
     </main>
+<!-- jQuery CDNで提供されたリンク -->
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script type="text/javascript" src="../static/common.js"></script>
 </body>
 </html>
