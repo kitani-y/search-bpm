@@ -32,35 +32,20 @@
                 <span id="sliderValue">50</span> BPM
             </div>
             <button id="restart-btn">START</button>
-            <div id="sliders">
-                <input type="range" id="slider" class="slider" min="50" max="250" value="50" step="1">
-                <div class="humburger-menu">
-                    <button class="menu-toggle"><img src="../icon/option.png"></button>
-                    <div class="menu" id="menu">
-                        <div class="menu-item" data-sound="../sound/click.mp3">スタンダード</div>
-                        <div class="menu-item" data-sound="../sound/ずんだもん.mp3">ずんだもん</div>
-                        <div class="menu-item" data-sound="../sound/ずんだもん2.mp3">ずんだもん2</div>
-                        <div class="menu-item" data-sound="../sound/春日部つむぎ.mp3">春日部つむぎ</div>
-                    </div>
-                </div>
-            </div>
-            <audio id="click-sound" preload="auto"></audio>
+            <input type="range" id="slider" class="slider" min="50" max="250" value="50" step="1">
+            <audio src="../click.mp3" id="click-sound" preload="auto"></audio>
         </div>
         <div class="search-main none" id="search-main">
-            <div id="search-textbox">
-                <form id="searchForm" action=""><!--formタグを追加-->
-                    <div class="search-wrapper">          
+            <div id="search-textbox">        
+                <div class="search-wrapper">
                     <img src="../icon/sarch-icon-black.png">
-                    <input id="trackName" type="text" placeholder="曲名、アーティストを入力" required>
-                    </div>
-                </form>
+                    <input type="text" placeholder="曲名を入力">
+                </div>
             </div>
         </div>
-        <div class="results" id="results"></div><!--追加-->
     </main>
 <!-- jQuery CDNで提供されたリンク -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script type="text/javascript" src="../static/common.js"></script>
-<script type="text/javascript" src="../API/getAPI.js"></script>
 </body>
 </html>

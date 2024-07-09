@@ -1,5 +1,9 @@
-$(function(){
+$(function() {
     console.log("機動成功");
+
+    let intervalId;
+    let currentSound = '../sound/click.mp3'; // currentSoundをグローバルスコープで宣言
+
     $('#top-btn').on('click', function() {
         console.log("TOPボタンの機動成功");
         if ($('#top-main').hasClass('none')) {
@@ -9,8 +13,8 @@ $(function(){
             $('#search-main').hide(1000, function() {
                 $('#search-main').addClass('none');
             });
-            if($('#restart-btn').text() === 'STOP'){
-                clearInterval(500);
+            if ($('#restart-btn').text() === 'STOP') {
+                clearInterval(intervalId);
                 $('#restart-btn').text('START');
             }
         }
@@ -25,40 +29,57 @@ $(function(){
             $('#top-main').hide(1000, function() {
                 $('#top-main').addClass('none');
             });
-            if($('#restart-btn').text() === 'STOP'){
+            if ($('#restart-btn').text() === 'STOP') {
                 clearInterval(intervalId);
             }
         }
     });
-let intervalId;
-// スライダーの値変更イベントリスナー
-$('#slider').on('input', function() {
-    $('#sliderValue').text($(this).val());
-    updateMetronome();
-});
 
-// メトロノームを更新する関数
-function updateMetronome() {
-    clearInterval(intervalId);
-    if ($('#restart-btn').text() === 'STOP') {
-        const bpm = $('#slider').val();
-        const interval = 60000 / bpm; // ミリ秒単位の間隔
-        const clickSound = $('#click-sound')[0];
-        intervalId = setInterval(function() {
-            clickSound.currentTime = 0;
-            clickSound.play();
-        }, interval);
+    // スライダーの値変更イベントリスナー
+    $('#slider').on('input', function() {
+        $('#sliderValue').text($(this).val());
+        updateMetronome();
+    });
+
+    // メトロノームを更新する関数
+    function updateMetronome() {
+        clearInterval(intervalId);
+        if ($('#restart-btn').text() === 'STOP') {
+            const bpm = $('#slider').val();
+            const interval = 60000 / bpm; // ミリ秒単位の間隔
+            const clickSound = $('#click-sound')[0];
+            clickSound.src = currentSound;
+            intervalId = setInterval(function() {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            }, interval);
+        }
     }
-}
 
-// START/STOPボタンのクリックイベントリスナー
-$('#restart-btn').click(function() {
-    if ($(this).text() === 'START') {
-        $(this).text('STOP');
+    // START/STOPボタンのクリックイベントリスナー
+    $('#restart-btn').click(function() {
+        if ($(this).text() === 'START') {
+            $(this).text('STOP');
             updateMetronome();
         } else {
             $(this).text('START');
             clearInterval(intervalId);
         }
     });
+
+    // ハンバーガーメニュー
+// ハンバーガーメニュー
+let rotation = 0;
+    $('.menu-toggle').click(function() {
+        $('#menu').toggle();
+    });
+
+
+    $('.menu-item').click(function() {
+        currentSound = $(this).data('sound');
+        $('#menu').hide();
+        updateMetronome();
+
+    });
+
 });

@@ -82,56 +82,10 @@ header {
     text-align: center;
 
 }
-
-
-/* ハンバーガーメニュー */
-.menu {
-    display: none;
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
-    width: 150px;
-    background-color: #000;
-    border: 1px solid #0f0;
-    padding: 10px;
-    z-index: 1000;
-}
-
-.menu-item {
-    padding: 5px 10px;
-    color: #fff;
-    cursor: pointer;
-    font-family: "gemeli-mono", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.menu-item:hover {
-    transition: 0.5s;
-    filter: brightness(0.5);
-}
-
-.menu-toggle {
-    cursor: pointer;
-    height: 20px;
-    width: 20px;
-    margin: 0 0 30px 10px;
-}
-
-#slider {
-    display: inline;
-}
-
-.humburger-menu {
-    display: inline;
-    position: relative;
-}
-
-
 /* スライダーCSS */
 .slider {
     -webkit-appearance: none;
-    width: 900px;
+    width: 50%;
     height: 5px;
     background: #ddd;
     outline: none;
