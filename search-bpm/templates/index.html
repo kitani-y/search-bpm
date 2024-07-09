@@ -35,16 +35,21 @@
             <input type="range" id="slider" class="slider" min="50" max="250" value="50" step="1">
         </div>
         <div class="search-main none" id="search-main">
-            <div id="search-textbox">        
-                <div class="search-wrapper">
+            <div id="search-textbox">
+                <form id="searchForm" action=""><!--formタグを追加-->
+                    <div class="search-wrapper">          
                     <img src="../icon/sarch-icon-black.png">
-                    <input type="text" placeholder="曲名を入力">
-                </div>
+                    <input id="trackName" type="text" placeholder="曲名、アーティストを入力" required>
+                    </div>
+                </form>
+                
             </div>
         </div>
+        <div class="results" id="results"></div><!--追加-->
     </main>
 <!-- jQuery CDNで提供されたリンク -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script type="text/javascript" src="../static/common.js"></script>
+<script type="text/javascript" src="../API/getAPI.js"></script>
 </body>
 </html>
