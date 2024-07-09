@@ -131,7 +131,7 @@ header {
 /* スライダーCSS */
 .slider {
     -webkit-appearance: none;
-    width: 900px;
+    width: 600px;
     height: 5px;
     background: #ddd;
     outline: none;
