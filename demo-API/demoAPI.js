@@ -7,7 +7,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
 async function searchTrack() {
     const trackName = document.getElementById('trackName').value;
     console.log("Form submitted"); // デバッグメッセージ
-    const accessToken = 'BQBQ2Z_rOST2SHhc0XubHyx78-8-4j5yMVMZlcJ1iBj5od6y4pEmMn1V2trD5pxKQq01pCzGh_FcfmE4aoPzufgnPS3Yan5oFF4dQTf9jxQB7MKyLnE'; // ここにあなたのアクセストークンを入れてください
+    const accessToken = 'BQAGTcLMMtbe2xjGDycpU1tK6NKX2tsVML_qTsK26ZpYsdXqzam2KM4J0oHj36FTxqhSI8DlBcJm6bEYcD43GXAi4zkhjlKUscF-QUu7Mci0gi-n-ek'; // ここにあなたのアクセストークンを入れてください
 
     const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(trackName)}&type=track`, {
         headers: {
@@ -20,15 +20,24 @@ async function searchTrack() {
 }
 
 function displayResults(tracks) {
+    console.log("Displaying results..."); // デバッグメッセージ
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = '';
 
+    const template = document.getElementById('track-template');
+
     tracks.forEach(track => {
-        const trackElement = document.createElement('div');
-        trackElement.innerHTML = `
-            <p><strong>${track.name}</strong> by ${track.artists.map(artist => artist.name).join(', ')}</p>
-            <img src="${track.album.images[0].url}" alt="Album cover" style="width: 100px;">
-        `;
-        resultsDiv.appendChild(trackElement);
+        console.log("Track:", track); // デバッグメッセージ
+        const clone = template.content.cloneNode(true);
+
+        clone.querySelector('.track-name').textContent = track.name;
+        clone.querySelector('.track-artists').textContent = track.artists.map(artist => artist.name).join(', ');
+        clone.querySelector('.track-image').src = track.album.images[0].url;
+
+        resultsDiv.appendChild(clone);
     });
+}
+
+function playTrack(){
+
 }

@@ -196,3 +196,8 @@ header {
 .none {
     display: none;
 }
+
+#results{
+    text-align: center;
+    margin: 10px;
+}
