@@ -101,9 +101,6 @@ header {
     padding: 5px 10px;
     color: #fff;
     cursor: pointer;
-    font-family: "gemeli-mono", serif;
-    font-weight: 400;
-    font-style: normal;
 }
 
 .menu-item:hover {
@@ -113,10 +110,13 @@ header {
 
 .menu-toggle {
     cursor: pointer;
-    height: 20px;
-    width: 20px;
+    height: 48px;
+    width: 48px;
+    transition: transform 1s ease;
+    transform-origin: center; 
     margin: 0 0 30px 10px;
 }
+
 
 #slider {
     display: inline;
@@ -135,6 +135,7 @@ header {
     height: 5px;
     background: #ddd;
     outline: none;
+    margin-bottom: 24px;
 }
 
 /* Webkitブラウザ用（Chrome, Safari, Opera） */

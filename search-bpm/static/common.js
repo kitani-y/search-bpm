@@ -3,7 +3,7 @@ $(function() {
 
     let intervalId;
     let currentSound = '../sound/click.mp3'; // currentSoundをグローバルスコープで宣言
-
+    let rotation = 0;
     $('#top-btn').on('click', function() {
         console.log("TOPボタンの機動成功");
         if ($('#top-main').hasClass('none')) {
@@ -69,15 +69,37 @@ $(function() {
 
     // ハンバーガーメニュー
 // ハンバーガーメニュー
-let rotation = 0;
-    $('.menu-toggle').click(function() {
-        $('#menu').toggle();
-    });
-
+$('.menu-toggle').click(function() {
+    // ボタンを無効化する
+    $(this).prop('disabled', true);
+    $('#menu').toggle(500);
+    if ($('#menu').is(':visible')) {
+        rotation -= 360;
+        $('.menu-toggle').css({
+            'transform-origin': 'center',
+            'transform': `rotate(${rotation}deg)`
+        });
+    } else {
+        rotation += 360;
+        $('.menu-toggle').css({
+            'transform-origin': 'center',
+            'transform': `rotate(${rotation}deg)`
+        });
+    }
+    // 一定時間後にボタンを再度有効化する
+    setTimeout(function() {
+        $('.menu-toggle').prop('disabled', false);
+    }, 1000); // 1000ミリ秒 = 1秒
+});
 
     $('.menu-item').click(function() {
         currentSound = $(this).data('sound');
-        $('#menu').hide();
+        rotation += 360;
+        $('.menu-toggle').css({
+            'transform-origin': 'center',
+            'transform': `rotate(${rotation}deg)`
+        });
+        $('#menu').hide(500);
         updateMetronome();
 
     });
