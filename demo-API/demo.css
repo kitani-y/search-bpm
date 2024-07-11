@@ -1,0 +1,11 @@
+.track :hover{
+    transition: 0.3s;
+    filter: brightness(0.2);
+}
+
+#results {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}

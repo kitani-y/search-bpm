@@ -5,7 +5,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
 
 async function searchTrack() {
     const trackName = document.getElementById('trackName').value;
-    const accessToken = 'BQCH5uKQPNMASOoaI9Xq4OebwpO2-2WZxd0FeMUXzV9olwiTEjPClRc4sTosu2jf8YSgGYnJSiNHQf30al-fWSMbb-TpWxOKYAZfBmFG06Ksg6sqDac]'; 
+    const accessToken = 'ENTER YOUR ACCESS TOKEN'; 
     const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(trackName)}&type=track`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
@@ -23,7 +23,7 @@ function displayResults(tracks) {
         const trackElement = document.createElement('div');
         trackElement.innerHTML = `
             <p><strong>${track.name}</strong> by ${track.artists.map(artist => artist.name).join(', ')}</p>
-            <img src="${track.album.images[0].url}" alt="Album cover" style="width: 100px;">
+            <img src="${track.album.images[0].url}" id="track-image" alt="Album cover" style="width: 150px;">
         `;
         resultsDiv.appendChild(trackElement);
     });
