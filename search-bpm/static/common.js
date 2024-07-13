@@ -75,15 +75,20 @@ $('.menu-toggle').click(function() {
     // ボタンを無効化する
     $(this).prop('disabled', true);
     $('#menu').toggle(500);
+
+    // メニューが表示されているかどうかで回転角度を変更する
     if ($('#menu').is(':visible')) {
         rotation -= 360;
     } else {
         rotation += 360;
-        }
+    }
+
+    // 回転角度を適用する
     $('.menu-toggle').css({
-            'transform-origin': 'center',
-            'transform': `rotate(${rotation}deg)`
+        'transform-origin': 'center',
+        'transform': `rotate(${rotation}deg)`
     });
+
     // 一定時間後にボタンを再度有効化する
     setTimeout(function() {
         $('.menu-toggle').prop('disabled', false);
