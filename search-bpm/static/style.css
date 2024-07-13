@@ -194,10 +194,57 @@ header {
 }
 
 .none {
-    display: none;
+    display: none !important;
 }
 
-#results{
+#results {
     text-align: center;
     margin: 10px;
 }
+
+.playtrack {
+    background-color: black;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    border-top:  solid 6px #0f0;
+}
+
+.track-image {
+    width: 100px;
+}
+
+.track-image:hover {
+    transition: 0.3s;
+    filter: brightness(0.5);
+}
+
+.playtrack {
+    display: flex;
+    align-items: center;
+}
+
+.gotdata {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+}
+
+.gotimage {
+    width: 64px;
+    margin-left: 6px;
+}
+
+.trackname {
+    float: right;
+    text-align: center;
+    margin-left: 6px;
+}
+
+.bpm {
+    float: right;
+    text-align: center;
+    margin-left: 6px;
+}
+

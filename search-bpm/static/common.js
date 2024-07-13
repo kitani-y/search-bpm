@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
     console.log("機動成功");
 
     let intervalId;
@@ -17,6 +17,7 @@ $(function() {
                 clearInterval(intervalId);
                 $('#restart-btn').text('START');
             }
+
         }
     });
 
@@ -38,6 +39,7 @@ $(function() {
     // スライダーの値変更イベントリスナー
     $('#slider').on('input', function() {
         $('#sliderValue').text($(this).val());
+        
         updateMetronome();
     });
 
@@ -75,17 +77,13 @@ $('.menu-toggle').click(function() {
     $('#menu').toggle(500);
     if ($('#menu').is(':visible')) {
         rotation -= 360;
-        $('.menu-toggle').css({
-            'transform-origin': 'center',
-            'transform': `rotate(${rotation}deg)`
-        });
     } else {
         rotation += 360;
-        $('.menu-toggle').css({
+        }
+    $('.menu-toggle').css({
             'transform-origin': 'center',
             'transform': `rotate(${rotation}deg)`
-        });
-    }
+    });
     // 一定時間後にボタンを再度有効化する
     setTimeout(function() {
         $('.menu-toggle').prop('disabled', false);
@@ -105,3 +103,4 @@ $('.menu-toggle').click(function() {
     });
 
 });
+
