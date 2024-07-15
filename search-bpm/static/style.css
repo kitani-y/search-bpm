@@ -57,7 +57,7 @@ header {
 /* メイン部分 */
 #top-main{
     width: 100%;
-    display: inline-flex;
+    display: inline-flex ;
     flex-direction: column;
     align-items: center;
 }
@@ -194,7 +194,7 @@ header {
 }
 
 .none {
-    display: none !important;
+    display: none;
 }
 
 #results {
@@ -220,31 +220,25 @@ header {
     filter: brightness(0.5);
 }
 
-.playtrack {
-    display: flex;
-    align-items: center;
-}
-
 .gotdata {
-    display: flex;
-    align-items: center;
     font-size: 30px;
 }
 
 .gotimage {
     width: 64px;
     margin-left: 6px;
+    float: left;
 }
 
 .trackname {
-    float: right;
-    text-align: center;
-    margin-left: 6px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 17px;
 }
 
 .bpm {
-    float: right;
-    text-align: center;
-    margin-left: 6px;
+    float: left;
+    margin-left: 8px;
+    margin-top: 17px;
 }
 
