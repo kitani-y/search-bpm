@@ -4,6 +4,7 @@ $(document).ready(function() {
     let intervalId;
     let currentSound = '../sound/click.mp3'; // currentSoundをグローバルスコープで宣言
     let rotation = 0;
+    let count = 0;
     $('#top-btn').on('click', function() {
         console.log("TOPボタンの機動成功");
         if ($('#top-main').hasClass('none')) {
@@ -106,18 +107,19 @@ $(document).ready(function() {
     });
 
     //曲のbpmを取得してメトロノームを鳴らす
-    $('#playbtn').click(function() {
-        console.log("再生ボタンクリック")
-        const trackBPM = $('.bpm').val();
-        console.log("trackBPM");
-        const interval = 60000 / bpm; // ミリ秒単位の間隔
-            const clickSound = $('#click-sound')[0];
-            clickSound.src = currentSound;
-            intervalId = setInterval(function() {
-                clickSound.currentTime = 0;
-                clickSound.play();
-            }, interval);
-    })
+    $(document).on('click', '#playbtn', function() {
+        console.log("再生ボタンクリック");
+        const trackBPM = $('.bpm').text();
+        console.log("trackBPM:", trackBPM);
+        const interval = 60000 / trackBPM;
+        const clickSound = $('#click-sound')[0];
+        clickSound.src = currentSound;
+        intervalId = setInterval(function() {
+            clickSound.currentTime = 0;
+            clickSound.play();
+        }, interval);
+    });
+    
 
 });
 
