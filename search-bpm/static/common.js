@@ -13,6 +13,9 @@ $(document).ready(function() {
             $('#search-main').hide(1000, function() {
                 $('#search-main').addClass('none');
             });
+            $('#playtrack').hide(1000, function() {
+                $('#playtrack').addClass('none');
+            });
             if ($('#restart-btn').text() === 'STOP') {
                 clearInterval(intervalId);
                 $('#restart-btn').text('START');
