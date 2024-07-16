@@ -13,12 +13,11 @@ $(document).ready(function() {
             $('#search-main').hide(1000, function() {
                 $('#search-main').addClass('none');
             });
+        }
             if ($('#restart-btn').text() === 'STOP') {
                 clearInterval(intervalId);
                 $('#restart-btn').text('START');
             }
-
-        }
     });
 
     $('#search-btn').on('click', function() {

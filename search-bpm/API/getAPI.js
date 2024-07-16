@@ -5,7 +5,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
 
 async function searchTrack() {
     const trackName = document.getElementById('trackName').value;
-    const accessToken = 'BQDhSZobXCUg1oPQRx7kFyt2R4t0qaR1I10M_sWlYDjXvji4Qr0-40HbY22KJHaYUGK5FdgckK8VSc8pXO8w727PJBYJZ9bA9IPCjZrJ6Q_MYhR_A7M'; 
+    const accessToken = 'enter your token'; 
     const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(trackName)}&type=track`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
@@ -39,7 +39,7 @@ async function displayTrack(event) {
     
     const trackId = event.target.getAttribute('data-track-id');
     const trackName = event.target.getAttribute('data-track-name');
-    const accessToken = 'BQDhSZobXCUg1oPQRx7kFyt2R4t0qaR1I10M_sWlYDjXvji4Qr0-40HbY22KJHaYUGK5FdgckK8VSc8pXO8w727PJBYJZ9bA9IPCjZrJ6Q_MYhR_A7M'; 
+    const accessToken = 'enter your token'; 
     const response = await fetch(`https://api.spotify.com/v1/audio-analysis/${trackId}`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
