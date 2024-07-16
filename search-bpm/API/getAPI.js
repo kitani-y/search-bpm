@@ -5,7 +5,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
 
 async function searchTrack() {
     const trackName = document.getElementById('trackName').value;
-    const accessToken = 'BQD39R-tD5YKxUYKYyRMZviFWC70uDPdPRRBH1Pud4Ve0dvmVnlImjxhqUs4OGRcGMGRC0kbRIEP0av7zOZNR2DFrcRFT8eURCjqvWxvAmszmsY3oAo'; 
+    const accessToken = 'BQDhSZobXCUg1oPQRx7kFyt2R4t0qaR1I10M_sWlYDjXvji4Qr0-40HbY22KJHaYUGK5FdgckK8VSc8pXO8w727PJBYJZ9bA9IPCjZrJ6Q_MYhR_A7M'; 
     const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(trackName)}&type=track`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
@@ -39,7 +39,7 @@ async function displayTrack(event) {
     
     const trackId = event.target.getAttribute('data-track-id');
     const trackName = event.target.getAttribute('data-track-name');
-    const accessToken = 'BQD39R-tD5YKxUYKYyRMZviFWC70uDPdPRRBH1Pud4Ve0dvmVnlImjxhqUs4OGRcGMGRC0kbRIEP0av7zOZNR2DFrcRFT8eURCjqvWxvAmszmsY3oAo'; 
+    const accessToken = 'BQDhSZobXCUg1oPQRx7kFyt2R4t0qaR1I10M_sWlYDjXvji4Qr0-40HbY22KJHaYUGK5FdgckK8VSc8pXO8w727PJBYJZ9bA9IPCjZrJ6Q_MYhR_A7M'; 
     const response = await fetch(`https://api.spotify.com/v1/audio-analysis/${trackId}`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
@@ -53,7 +53,9 @@ async function displayTrack(event) {
         <div class="gotdata">
             <img src="${event.target.src}" alt="Album cover" class="gotimage">
             <p class="trackname">${trackName}</p>
-            <p class="bpm">${bpm} BPM</p>
+            <p class="BPMind">BPM:</P>
+            <p class="bpm">${bpm}</p>
+            <button id="playbtn"><img src="../icon/start-button.png"></button>
         </div>
     `;
 }

@@ -70,30 +70,29 @@ $(document).ready(function() {
     });
 
     // ハンバーガーメニュー
-// ハンバーガーメニュー
-$('.menu-toggle').click(function() {
-    // ボタンを無効化する
-    $(this).prop('disabled', true);
-    $('#menu').toggle(500);
+    $('.menu-toggle').click(function() {
+        // ボタンを無効化する
+        $(this).prop('disabled', true);
+        $('#menu').toggle(500);
 
-    // メニューが表示されているかどうかで回転角度を変更する
-    if ($('#menu').is(':visible')) {
-        rotation -= 360;
-    } else {
-        rotation += 360;
-    }
+        // メニューが表示されているかどうかで回転角度を変更する
+        if ($('#menu').is(':visible')) {
+            rotation -= 360;
+        } else {
+            rotation += 360;
+        }
 
-    // 回転角度を適用する
-    $('.menu-toggle').css({
-        'transform-origin': 'center',
-        'transform': `rotate(${rotation}deg)`
+        // 回転角度を適用する
+        $('.menu-toggle').css({
+            'transform-origin': 'center',
+            'transform': `rotate(${rotation}deg)`
+        });
+
+        // 一定時間後にボタンを再度有効化する
+        setTimeout(function() {
+            $('.menu-toggle').prop('disabled', false);
+        }, 1000); // 1000ミリ秒 = 1秒
     });
-
-    // 一定時間後にボタンを再度有効化する
-    setTimeout(function() {
-        $('.menu-toggle').prop('disabled', false);
-    }, 1000); // 1000ミリ秒 = 1秒
-});
 
     $('.menu-item').click(function() {
         currentSound = $(this).data('sound');
@@ -106,6 +105,20 @@ $('.menu-toggle').click(function() {
         updateMetronome();
 
     });
+
+    //曲のbpmを取得してメトロノームを鳴らす
+    $('#playbtn').click(function() {
+        console.log("再生ボタンクリック")
+        const trackBPM = $('.bpm').val();
+        console.log("trackBPM");
+        const interval = 60000 / bpm; // ミリ秒単位の間隔
+            const clickSound = $('#click-sound')[0];
+            clickSound.src = currentSound;
+            intervalId = setInterval(function() {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            }, interval);
+    })
 
 });
 
