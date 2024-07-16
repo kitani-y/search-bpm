@@ -5,7 +5,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
 
 async function searchTrack() {
     const trackName = document.getElementById('trackName').value;
-    const accessToken = 'BQAf-qJiUdppCW3QzooEJjRzb9bU6fAYm4qOYwohFCnaxhra0U5Oh1gFr-F-VQ3nIc8wOGziZ2NMT-No3NKwGAXcYkxuxymJQMMcu8E80_mcbjYEOO0'; 
+    const accessToken = 'BQADH1VjX9szsSUxjhW3r1ffW1hi3_HVXz9xxZsRlCEelXhoWyXRRvdyXkc0gV4i0dlTOSeMWYuXXQ6YTm4aCLKeiMTJxIWEgQ4EFTDu70IgxTXB_Ds'; 
     const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(trackName)}&type=track`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
@@ -39,7 +39,7 @@ async function displayTrack(event) {
     
     const trackId = event.target.getAttribute('data-track-id');
     const trackName = event.target.getAttribute('data-track-name');
-    const accessToken = 'BQAf-qJiUdppCW3QzooEJjRzb9bU6fAYm4qOYwohFCnaxhra0U5Oh1gFr-F-VQ3nIc8wOGziZ2NMT-No3NKwGAXcYkxuxymJQMMcu8E80_mcbjYEOO0'; 
+    const accessToken = 'BQADH1VjX9szsSUxjhW3r1ffW1hi3_HVXz9xxZsRlCEelXhoWyXRRvdyXkc0gV4i0dlTOSeMWYuXXQ6YTm4aCLKeiMTJxIWEgQ4EFTDu70IgxTXB_Ds'; 
     const response = await fetch(`https://api.spotify.com/v1/audio-analysis/${trackId}`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`

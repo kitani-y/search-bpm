@@ -221,7 +221,7 @@ header {
 }
 
 .gotdata {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .gotimage {
@@ -233,12 +233,12 @@ header {
 .trackname {
     float: left;
     margin-left: 20px;
-    margin-top: 17px;
+    margin-top: 22px;
 }
 
 .bpm {
     float: left;
     margin-left: 8px;
-    margin-top: 17px;
+    margin-top: 22px;
 }
 
