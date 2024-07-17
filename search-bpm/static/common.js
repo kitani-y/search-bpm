@@ -4,7 +4,7 @@ $(document).ready(function() {
     let intervalId;
     let currentSound = '../sound/click.mp3'; // currentSoundをグローバルスコープで宣言
     let rotation = 0;
-
+    let count = 0;
     $('#top-btn').on('click', function() {
         console.log("TOPボタンの機動成功");
         if ($('#top-main').hasClass('none')) {

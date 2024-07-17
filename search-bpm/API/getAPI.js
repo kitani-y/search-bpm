@@ -39,8 +39,7 @@ async function displayTrack(event) {
     
     const trackId = event.target.getAttribute('data-track-id');
     const trackName = event.target.getAttribute('data-track-name');
-    const accessToken = 'BQAjOW_NElB4s7qhPxMtVaCdUsuEql3CotcsY421VxUmi1EurlYCyzzttXlpFFOb8QoiIggsVQw4IuT7RyBAwJpojWKnRZz85E-AOpbj23UTAGqKpas'; 
-
+    const accessToken = 'BQDkKxw77D-ea3SdyDTeTVazCtHyvkUCkY-4cTtMDYftoswUjriyPh2szWTm0trWwAmD3d5_JxzIlgKB56gQ0_MH2tbPf2974yJ8rCmnM3L0RcvVs3A'; 
     const response = await fetch(`https://api.spotify.com/v1/audio-analysis/${trackId}`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
