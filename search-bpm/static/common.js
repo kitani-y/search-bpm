@@ -102,29 +102,39 @@ $(document).ready(function() {
 
     // 曲のBPMを取得してメトロノームを鳴らす
     $(document).on('click', '#playbtn', function() {
-        console.log("再生ボタンクリック");
+        let src;
+        if ($('#playbtn').children('img').attr('src') === "../icon/start-button.png") {
+            src = $('#playbtn').children('img').attr('src');
+            console.log(src);
+            
+            console.log("再生ボタンクリック");
+            $('#playbtn').children('img').attr('src', "../icon/stopbtn.png");
+            const trackBPM = parseFloat($('.bpm').text()); // BPMを数値として取得
+            if (isNaN(trackBPM) || trackBPM <= 0) {
+                console.error("有効なBPMを入力してください。");
+                return;
+            }
 
-        const trackBPM = parseFloat($('.bpm').text()); // BPMを数値として取得
-        /*if (isNaN(trackBPM) || trackBPM <= 0) {
-            console.error("有効なBPMを入力してください。");
-            return;
-        }*/
+            console.log(trackBPM);
 
-        console.log(trackBPM);
+            const interval = 60000 / trackBPM; // ミリ秒単位の間隔
+            const clickSound = $('#click-sound')[0];
+            clickSound.src = currentSound;
 
-        const interval = 60000 / trackBPM; // ミリ秒単位の間隔
-        const clickSound = $('#click-sound')[0];
-        clickSound.src = currentSound;
+            if (typeof intervalId !== 'undefined') {
+                clearInterval(intervalId);
+            }
 
-        if (typeof intervalId !== 'undefined') {
+            intervalId = setInterval(function() {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            }, interval);
+        }
+        //停止ボタンを実装
+        else if ($('#playbtn').children('img').attr('src') === "../icon/stopbtn.png") {
+            console.log("停止ボタンをクリック");
+            $('#playbtn').children('img').attr('src' ,"../icon/start-button.png");
             clearInterval(intervalId);
         }
-
-        intervalId = setInterval(function() {
-            clickSound.currentTime = 0;
-            clickSound.play();
-        }, interval);
-
     });
-    
 });

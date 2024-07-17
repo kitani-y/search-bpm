@@ -55,29 +55,7 @@ async function displayTrack(event) {
             <p class="trackname">${trackName}</p>
             <p class="BPMind">BPM:</P>
             <p class="bpm">${bpm}</p>
-            <button id="playbtn"><img src="../icon/start-button.png"></button>
+            <button id="playbtn"><img src="../icon/start-button.png"/></button>
         </div>
     `;
 }
-console.log("再生ボタンクリック");
-
-        const trackBPM = parseFloat($('.bpm').text()); // BPMを数値として取得
-        /*if (isNaN(trackBPM) || trackBPM <= 0) {
-            console.error("有効なBPMを入力してください。");
-            return;
-        }*/
-
-        console.log(trackBPM);
-
-        const interval = 60000 / trackBPM; // ミリ秒単位の間隔
-        const clickSound = $('#click-sound')[0];
-        clickSound.src = currentSound;
-
-        if (typeof intervalId !== 'undefined') {
-            clearInterval(intervalId);
-        }
-
-        intervalId = setInterval(function() {
-            clickSound.currentTime = 0;
-            clickSound.play();
-        }, interval);
