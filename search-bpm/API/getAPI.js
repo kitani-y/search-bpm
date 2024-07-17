@@ -5,7 +5,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
 
 async function searchTrack() {
     const trackName = document.getElementById('trackName').value;
-    const accessToken = 'enter your token'; 
+    const accessToken = 'BQAxohK7rmxSDY1Nk9CnpDsNQED6NvsAv6p2qofXXXrVOPC5VjvuNUCKPMSj-pSxxh4hGKP7c9fO9myWEGgHuLl_ipAhbn9MYRLIeEEpNLBFEZWmxik'; 
     const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(trackName)}&type=track`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
@@ -39,7 +39,7 @@ async function displayTrack(event) {
     
     const trackId = event.target.getAttribute('data-track-id');
     const trackName = event.target.getAttribute('data-track-name');
-    const accessToken = 'BQCjw6GM3-rp1QpYJM_Ir1Sy2bHrVGcs_A8-3_ZhO5gqHFlAH8bp7JhL1r4DqrtILCEPJhnqcSD-r06qnV0FhGKYcX0MMuC7YQLK-j70K-lE4AZFG4U'; 
+    const accessToken = 'BQAxohK7rmxSDY1Nk9CnpDsNQED6NvsAv6p2qofXXXrVOPC5VjvuNUCKPMSj-pSxxh4hGKP7c9fO9myWEGgHuLl_ipAhbn9MYRLIeEEpNLBFEZWmxik'; 
     const response = await fetch(`https://api.spotify.com/v1/audio-analysis/${trackId}`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
@@ -59,3 +59,25 @@ async function displayTrack(event) {
         </div>
     `;
 }
+console.log("再生ボタンクリック");
+
+        const trackBPM = parseFloat($('.bpm').text()); // BPMを数値として取得
+        /*if (isNaN(trackBPM) || trackBPM <= 0) {
+            console.error("有効なBPMを入力してください。");
+            return;
+        }*/
+
+        console.log(trackBPM);
+
+        const interval = 60000 / trackBPM; // ミリ秒単位の間隔
+        const clickSound = $('#click-sound')[0];
+        clickSound.src = currentSound;
+
+        if (typeof intervalId !== 'undefined') {
+            clearInterval(intervalId);
+        }
+
+        intervalId = setInterval(function() {
+            clickSound.currentTime = 0;
+            clickSound.play();
+        }, interval);

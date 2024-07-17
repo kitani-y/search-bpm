@@ -101,14 +101,14 @@ $(document).ready(function() {
     });
 
     // 曲のBPMを取得してメトロノームを鳴らす
-    $('#playbtn').click(function() {
+    $(document).on('click', '#playbtn', function() {
         console.log("再生ボタンクリック");
 
         const trackBPM = parseFloat($('.bpm').text()); // BPMを数値として取得
-        if (isNaN(trackBPM) || trackBPM <= 0) {
+        /*if (isNaN(trackBPM) || trackBPM <= 0) {
             console.error("有効なBPMを入力してください。");
             return;
-        }
+        }*/
 
         console.log(trackBPM);
 
@@ -124,5 +124,7 @@ $(document).ready(function() {
             clickSound.currentTime = 0;
             clickSound.play();
         }, interval);
+
     });
+    
 });
