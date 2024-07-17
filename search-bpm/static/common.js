@@ -15,10 +15,10 @@ $(document).ready(function() {
                 $('#search-main').addClass('none');
             });
         }
-            if ($('#restart-btn').text() === 'STOP') {
-                clearInterval(intervalId);
-                $('#restart-btn').text('START');
-            }
+        if ($('#restart-btn').text() === 'STOP') {
+            clearInterval(intervalId);
+            $('#restart-btn').text('START');
+        }
     });
 
     $('#search-btn').on('click', function() {
@@ -39,7 +39,6 @@ $(document).ready(function() {
     // スライダーの値変更イベントリスナー
     $('#slider').on('input', function() {
         $('#sliderValue').text($(this).val());
-        
         updateMetronome();
     });
 
@@ -71,27 +70,23 @@ $(document).ready(function() {
 
     // ハンバーガーメニュー
     $('.menu-toggle').click(function() {
-        // ボタンを無効化する
         $(this).prop('disabled', true);
         $('#menu').toggle(500);
 
-        // メニューが表示されているかどうかで回転角度を変更する
         if ($('#menu').is(':visible')) {
             rotation -= 360;
         } else {
             rotation += 360;
         }
 
-        // 回転角度を適用する
         $('.menu-toggle').css({
             'transform-origin': 'center',
             'transform': `rotate(${rotation}deg)`
         });
 
-        // 一定時間後にボタンを再度有効化する
         setTimeout(function() {
             $('.menu-toggle').prop('disabled', false);
-        }, 1000); // 1000ミリ秒 = 1秒
+        }, 1000);
     });
 
     $('.menu-item').click(function() {
@@ -103,23 +98,31 @@ $(document).ready(function() {
         });
         $('#menu').hide(500);
         updateMetronome();
-
     });
 
-    //曲のbpmを取得してメトロノームを鳴らす
-    $(document).on('click', '#playbtn', function() {
+    // 曲のBPMを取得してメトロノームを鳴らす
+    $('#playbtn').click(function() {
         console.log("再生ボタンクリック");
-        const trackBPM = $('.bpm').text();
-        console.log("trackBPM:", trackBPM);
-        const interval = 60000 / trackBPM;
+
+        const trackBPM = parseFloat($('.bpm').text()); // BPMを数値として取得
+        if (isNaN(trackBPM) || trackBPM <= 0) {
+            console.error("有効なBPMを入力してください。");
+            return;
+        }
+
+        console.log(trackBPM);
+
+        const interval = 60000 / trackBPM; // ミリ秒単位の間隔
         const clickSound = $('#click-sound')[0];
         clickSound.src = currentSound;
+
+        if (typeof intervalId !== 'undefined') {
+            clearInterval(intervalId);
+        }
+
         intervalId = setInterval(function() {
             clickSound.currentTime = 0;
             clickSound.play();
         }, interval);
     });
-    
-
 });
-

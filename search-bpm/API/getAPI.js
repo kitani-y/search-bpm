@@ -5,7 +5,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
 
 async function searchTrack() {
     const trackName = document.getElementById('trackName').value;
-    const accessToken = 'BQCjw6GM3-rp1QpYJM_Ir1Sy2bHrVGcs_A8-3_ZhO5gqHFlAH8bp7JhL1r4DqrtILCEPJhnqcSD-r06qnV0FhGKYcX0MMuC7YQLK-j70K-lE4AZFG4U'; 
+    const accessToken = 'enter your token'; 
     const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(trackName)}&type=track`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
