@@ -193,6 +193,11 @@ header {
     z-index: 2;
 }
 
+.search-main {
+    width: 800px;
+    margin: 0 auto;
+}
+
 .none {
     display: none;
 }
@@ -201,6 +206,15 @@ header {
     text-align: center;
     margin: 10px;
 }
+
+.search-contents {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+}
+
+
 
 .playtrack {
     background-color: black;
@@ -213,6 +227,14 @@ header {
 
 .track-image {
     width: 100px;
+    margin-right: 20px;
+    
+}
+
+.name-artist {
+    position: absolute;
+    top: 50px;
+    padding-left: 120px;
 }
 
 .track-image:hover {

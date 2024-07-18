@@ -5,7 +5,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
 
 async function searchTrack() {
     const trackName = document.getElementById('trackName').value;
-    const accessToken = 'enter your token'; 
+    const accessToken = 'BQAMvyMN8-2rRvgcjVfvZfIu11EM4v9vcCLfbXP_Pvr3ZCuRytYO6mpFF9cdBMI1rfSUb-ttdeUnVZW9m13_NViGoG-IDzQunWP741kPDT6XTzrQL7M'; 
     const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(trackName)}&type=track`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
@@ -22,8 +22,10 @@ function displayResults(tracks) {
     tracks.forEach((track, index) => {
         const trackElement = document.createElement('div');
         trackElement.innerHTML = `
-            <p><strong>${track.name}</strong> by ${track.artists.map(artist => artist.name).join(', ')}</p>
-            <img src="${track.album.images[0].url}" id="track-image-${index}" class="track-image" alt="Album cover" data-track-id="${track.id}" data-track-name="${track.name}">
+            <div class="search-contents">
+                <img src="${track.album.images[0].url}" id="track-image-${index}" class="track-image" alt="Album cover" data-track-id="${track.id}" data-track-name="${track.name}">
+                <a class="name-artist"><strong>${track.name}</strong>  ${track.artists.map(artist => artist.name).join(', ')}</a>
+            </div>
         `;
         resultsDiv.appendChild(trackElement);
     });
@@ -39,7 +41,7 @@ async function displayTrack(event) {
     
     const trackId = event.target.getAttribute('data-track-id');
     const trackName = event.target.getAttribute('data-track-name');
-    const accessToken = 'enter your token'; 
+    const accessToken = 'BQAMvyMN8-2rRvgcjVfvZfIu11EM4v9vcCLfbXP_Pvr3ZCuRytYO6mpFF9cdBMI1rfSUb-ttdeUnVZW9m13_NViGoG-IDzQunWP741kPDT6XTzrQL7M'; 
     const response = await fetch(`https://api.spotify.com/v1/audio-analysis/${trackId}`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`
