@@ -14,9 +14,9 @@ $(document).ready(function() {
             $('#search-main').hide(1000, function() {
                 $('#search-main').addClass('none');
             });
-            $('#playtrack').slideUp(1000, function() {
-                $('#playtrack').addClass('none');
-            });
+            // $('#playtrack').slideUp(1000, function() {
+            //     $('#playtrack').addClass('none');
+            // });
         }
         if ($('#restart-btn').text() === 'STOP') {
             clearInterval(intervalId);
