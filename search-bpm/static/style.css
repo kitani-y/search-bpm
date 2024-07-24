@@ -57,7 +57,7 @@ header {
 /* メイン部分 */
 #top-main{
     width: 100%;
-    display: inline-flex;
+    display: inline-flex ;
     flex-direction: column;
     align-items: center;
 }
@@ -193,6 +193,90 @@ header {
     z-index: 2;
 }
 
+.search-main {
+    width: 800px;
+    margin: 0 auto;
+}
+
 .none {
     display: none;
+}
+
+#results {
+    text-align: center;
+    margin: 10px;
+}
+
+.search-contents {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+}
+
+
+
+.playtrack {
+    background-color: black;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    border-top:  solid 6px #0f0;
+}
+
+.track-image {
+    width: 100px;
+    margin-right: 20px;
+    
+}
+
+.name-artist {
+    position: absolute;
+    top: 50px;
+    padding-left: 120px;
+}
+
+.track-image:hover {
+    transition: 0.3s;
+    filter: brightness(0.5);
+}
+
+.gotdata {
+    font-size: 20px;
+}
+
+.gotimage {
+    width: 64px;
+    margin-left: 6px;
+    float: left;
+}
+
+.trackname {
+    float: left;
+    margin-left: 20px;
+    margin-top: 22px;
+}
+
+.BPMind {
+    float: left;
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+.bpm {
+    float: left;
+    margin-top: 22px;
+}
+
+#playbtn img {
+    width: 30px;
+    height: 30px;
+}
+
+#playbtn {
+    width: 40;
+    margin-top: 16px;
+    margin-right: 200px;
+    float: right;
 }

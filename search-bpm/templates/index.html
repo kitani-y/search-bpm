@@ -20,10 +20,10 @@
             <img src="../icon/icon-96x96.png">
         </div>
         <ul class="header-contents">
-            <li><a href="#" id="top-btn">TOP</a></li>
-            <li><a href="#" id="search-btn"><img src="../icon/sarch-icon.png"></a></li>
-            <li><a href="#">SIGN UP</a></li>
-            <li><a href="#">SIGN IN</a></li>
+            <li><button href="#" id="top-btn">TOP</button></li>
+            <li><button href="#" id="search-btn"><img src="../icon/sarch-icon.png"></button></li>
+            <!-- <li><button href="#">SIGN UP</button></li>
+            <li><button href="#">SIGN IN</button></li> -->
         </ul>
     </header>
     <main>
@@ -37,10 +37,10 @@
                 <div class="humburger-menu">
                     <button class="menu-toggle"><img src="../icon/option.png"></button>
                     <div class="menu" id="menu">
-                        <div class="menu-item" data-sound="../sound/click.mp3">スタンダード</div>
-                        <div class="menu-item" data-sound="../sound/ずんだもん.mp3">ずんだもん</div>
-                        <div class="menu-item" data-sound="../sound/ずんだもん2.mp3">ずんだもん2</div>
-                        <div class="menu-item" data-sound="../sound/春日部つむぎ.mp3">春日部つむぎ</div>
+                        <div class="menu-item" data-sound="../sound/click.mp3">メトロノーム</div>
+                        <div class="menu-item" data-sound="../sound/click_2.mp3">メトロノーム2</div>
+                        <div class="menu-item" data-sound="../sound/click_3.mp3">メトロノーム3</div>
+                        <div class="menu-item" data-sound="../sound/zunndamon.mp3">ずんだもん</div>
                     </div>
                 </div>
             </div>
@@ -50,13 +50,15 @@
             <div id="search-textbox">
                 <form id="searchForm" action=""><!--formタグを追加-->
                     <div class="search-wrapper">          
-                    <img src="../icon/sarch-icon-black.png">
-                    <input id="trackName" type="text" placeholder="曲名、アーティストを入力" required>
+                        <img src="../icon/sarch-icon-black.png">
+                        <input id="trackName" type="text" placeholder="曲名、アーティストを入力" required>
                     </div>
                 </form>
             </div>
+            <a href="#" id="results" ></a>
         </div>
-        <div class="results" id="results"></div><!--追加-->
+        <div id="playtrack" class="playtrack none"></div>
+        
     </main>
 <!-- jQuery CDNで提供されたリンク -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
